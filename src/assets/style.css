@@ -29,3 +29,11 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
+.cursor {
+    cursor: pointer;
+}
+
+.done {
+    text-decoration: line-through;
+}
