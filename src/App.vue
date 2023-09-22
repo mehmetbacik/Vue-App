@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content" :class="themeClass">
     <form @submit.prevent="addTodo">
       <div class="field">
         <label for="" class="label">Todo</label>
@@ -21,15 +21,19 @@
       </div>
       <button @click="deleteTodo(todo)" class="delete">X</button>
     </div>
+    <button @click="toggleTheme">Toggle Theme</button>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, computed, onMounted } from 'vue';
+
 export default {
   setup() {
     const todo = ref('');
     const todos = ref([]);
+    const isDarkMode = ref(false);
+    const themeClass = computed(() => isDarkMode.value ? 'dark-mode' : 'light-mode');
 
     function addTodo() {
       todos.value.push({
@@ -48,12 +52,29 @@ export default {
       todos.value = todos.value.filter(todo => todo !== todoToDelete);
     }
 
+    function toggleTheme() {
+      isDarkMode.value = !isDarkMode.value;
+      localStorage.setItem('isDarkMode', isDarkMode.value.toString());
+    }
+
+    onMounted(() => {
+      const storedMode = localStorage.getItem('isDarkMode');
+      if (storedMode === 'true') {
+        isDarkMode.value = true;
+      } else if (storedMode === 'false') {
+        isDarkMode.value = false;
+      }
+    });
+
     return {
       todo,
       todos,
+      isDarkMode,
       addTodo,
       done,
       deleteTodo,
+      toggleTheme,
+      themeClass,
     };
   },
 };

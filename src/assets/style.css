@@ -37,3 +37,13 @@ html, body {
 .done {
     text-decoration: line-through;
 }
+
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.light-mode {
+    background-color: #fff;
+    color: #333;
+}
