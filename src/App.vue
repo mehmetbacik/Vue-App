@@ -19,35 +19,42 @@
           </div>
         </div>
       </div>
+      <button @click="deleteTodo(todo)" class="delete">X</button>
     </div>
   </div>
 </template>
 
 <script>
-import {ref} from 'vue'
+import { ref } from 'vue';
 export default {
   setup() {
-    const todo = ref('')
-    const todos = ref([])
+    const todo = ref('');
+    const todos = ref([]);
 
-    function addTodo(){
+    function addTodo() {
       todos.value.push({
         done: false,
         content: todo.value,
         id: Date.now(),
-      })
-      todo.value = ''
+      });
+      todo.value = '';
     }
 
-    function done(todo){
-      todo.done = !todo.done
+    function done(todo) {
+      todo.done = !todo.done;
     }
-    return{
+
+    function deleteTodo(todoToDelete) {
+      todos.value = todos.value.filter(todo => todo !== todoToDelete);
+    }
+
+    return {
       todo,
       todos,
       addTodo,
       done,
-    }
-  }
-}
+      deleteTodo,
+    };
+  },
+};
 </script>
