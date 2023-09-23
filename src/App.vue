@@ -32,6 +32,8 @@
       <button @click="setFilter('active')" :class="{ active: filter === 'active' }">Active</button>
       <button @click="setFilter('completed')" :class="{ active: filter === 'completed' }">Completed</button>
     </div>
+
+    <button @click="clearCompleted">Clear Completed</button>
   </div>
 </template>
 
@@ -96,6 +98,10 @@ export default {
       filter.value = newFilter;
     }
 
+    function clearCompleted() {
+      todos.value = todos.value.filter(todo => !todo.done);
+    }
+
     return {
       todo,
       todos,
@@ -109,6 +115,7 @@ export default {
       filter,
       setFilter,
       filteredTodos,
+      clearCompleted,
     };
   },
 };
