@@ -22,6 +22,10 @@
       <button @click="deleteTodo(todo)" class="delete">X</button>
     </div>
     <button @click="toggleTheme">Toggle Theme</button>
+
+    <div class="remaining-items">
+      {{ remainingTodoCount }} item(s) left
+    </div>
   </div>
 </template>
 
@@ -66,6 +70,10 @@ export default {
       }
     });
 
+    const remainingTodoCount = computed(() => {
+      return todos.value.filter(todo => !todo.done).length;
+    });
+
     return {
       todo,
       todos,
@@ -75,6 +83,7 @@ export default {
       deleteTodo,
       toggleTheme,
       themeClass,
+      remainingTodoCount,
     };
   },
 };

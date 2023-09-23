@@ -47,3 +47,9 @@ html, body {
     background-color: #fff;
     color: #333;
 }
+
+.remaining-items {
+    margin-top: 10px;
+    color: #888;
+    font-size: 14px;
+}
