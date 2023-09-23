@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
 
 export default {
   setup() {
@@ -55,14 +55,17 @@ export default {
         id: Date.now(),
       });
       todo.value = '';
+      saveTodos(); 
     }
 
     function done(todo) {
       todo.done = !todo.done;
+      saveTodos(); 
     }
 
     function deleteTodo(todoToDelete) {
       todos.value = todos.value.filter(todo => todo !== todoToDelete);
+      saveTodos(); 
     }
 
     function toggleTheme() {
@@ -77,10 +80,11 @@ export default {
       } else if (storedMode === 'false') {
         isDarkMode.value = false;
       }
-    });
 
-    const remainingTodoCount = computed(() => {
-      return todos.value.filter(todo => !todo.done).length;
+      const storedTodos = localStorage.getItem('todos');
+      if (storedTodos) {
+        todos.value = JSON.parse(storedTodos);
+      }
     });
 
     const filteredTodos = computed(() => {
@@ -100,7 +104,22 @@ export default {
 
     function clearCompleted() {
       todos.value = todos.value.filter(todo => !todo.done);
+      saveTodos(); 
     }
+
+    function saveTodos() {
+      localStorage.setItem('todos', JSON.stringify(todos.value));
+    }
+
+    const stopWatchingTodos = watch(todos, () => {
+      saveTodos();
+    });
+
+    onUnmounted(stopWatchingTodos);
+
+    const remainingTodoCount = computed(() => {
+      return todos.value.filter(todo => !todo.done).length;
+    });
 
     return {
       todo,
