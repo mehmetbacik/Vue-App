@@ -24,11 +24,37 @@
 }
 
 html, body {
-    font-family: var(--theme__font);
-    font-size: var(--theme__size);
     margin: 0;
     padding: 0;
+    height: 100%;
 }
+
+body {
+    font-family: var(--theme__font);
+    font-size: var(--theme__size);
+    max-height: 100vh;
+}
+
+#app .content {
+    min-height: 100vh;
+}
+
+/*Dark-Theme*/
+#app .dark-mode {
+    background-image: url(/public/images/bg-desktop-dark.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+    background-color: var(--very__dark__blue);
+    color: var(--light__grayish__blue);
+}
+/*Dark-Theme*/
+
+/*Light-Theme*/
+
+/*Light-Theme*/
+
+
 
 .cursor {
     cursor: pointer;
@@ -36,11 +62,6 @@ html, body {
 
 .done {
     text-decoration: line-through;
-}
-
-.dark-mode {
-    background-color: #333;
-    color: #fff;
 }
 
 .light-mode {
