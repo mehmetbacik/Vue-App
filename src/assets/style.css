@@ -28,7 +28,14 @@ body {
 /*DarkTheme*/
 
 /*LightTheme*/
-
+#app .light-mode {
+    background-image: url(/public/images/bg-desktop-light.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+    background-color: var(--very__light__gray);
+    color: var(--very__dark__grayish__blue);
+}
 /*LightTheme*/
 
 
