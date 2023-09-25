@@ -31,7 +31,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 #app .content .content__todo .todos .headline .title span {
@@ -45,9 +45,21 @@ body {
 #app .content .content__todo .todos .headline .theme__button button {
     background: transparent;
     border: none;
+    padding: 0;
 }
 
+#app .content .content__todo .todos form {
+    margin-bottom: 20px;
+}
 
+#app .content .content__todo .todos form .field .control input[type=text] {
+    width: 100%;
+    height: 50px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0px 15px;
+}
 
 /*DarkTheme*/
 #app .dark-mode {
@@ -61,6 +73,15 @@ body {
 
 #app .dark-mode .content__todo .todos .headline .theme__button button .theme__icon::before {
     content: url(/public/images/icon-sun.svg);
+}
+
+#app .dark-mode .content__todo .todos form .field .control input[type=text] {
+    background-color: var(--very__dark__desaturated__blue);
+    color: var(--light__grayish__blue);
+}
+
+#app .dark-mode .content__todo .todos form .field .control input[type=text]::placeholder {
+    color: var(--light__grayish__blue);
 }
 /*DarkTheme*/
 
@@ -76,6 +97,15 @@ body {
 
 #app .light-mode .content__todo .todos .headline .theme__button button .theme__icon::before {
     content: url(/public/images/icon-moon.svg);
+}
+
+#app .light-mode .content__todo .todos form .field .control input[type=text] {
+    background-color: var(--very__light__grayish__blue);
+    color: var(--very__dark__grayish__blue);
+}
+
+#app .light-mode .content__todo .todos form .field .control input[type=text]::placeholder {
+    color: var(--very__dark__grayish__blue);
 }
 /*LightTheme*/
 

@@ -16,10 +16,10 @@
           <form @submit.prevent="addTodo">
             <div class="field">
               <div class="control">
-                <input v-model="todo" class="input border" type="text" placeholder="Lorem ipsum dolor sit amet." />
+                <input v-model="todo" class="input" type="text" placeholder="Add..." />
               </div>
             </div>
-            <button type="submit" class="button">Add</button>
+            <button type="submit" class="btn btn-primary d-none">Add</button>
           </form>
           <div v-for="todo in filteredTodos" :key="todo.id" class="card my-5 mx-5">
             <div class="card-content">
@@ -33,24 +33,18 @@
             </div>
             <button @click="deleteTodo(todo)" class="delete">X</button>
           </div>
-
           <div class="remaining-items">
             {{ remainingTodoCount }} item(s) left
           </div>
-
           <div class="filters">
             <button @click="setFilter('all')" :class="{ active: filter === 'all' }">All</button>
             <button @click="setFilter('active')" :class="{ active: filter === 'active' }">Active</button>
             <button @click="setFilter('completed')" :class="{ active: filter === 'completed' }">Completed</button>
           </div>
-
           <button @click="clearCompleted">Clear Completed</button>
         </div>
-
       </div>
-
     </div>
-
   </div>
 </template>
 
