@@ -21,7 +21,7 @@
             </div>
             <button type="submit" class="btn btn-primary d-none">Add</button>
           </form>
-          <div v-for="todo in filteredTodos" :key="todo.id" class="card my-5 mx-5">
+          <div v-for="todo in filteredTodos" :key="todo.id" class="card">
             <div class="card-content">
               <div class="media">
                 <div class="media-left"></div>
@@ -33,15 +33,17 @@
             </div>
             <button @click="deleteTodo(todo)" class="delete">X</button>
           </div>
-          <div class="remaining-items">
-            {{ remainingTodoCount }} item(s) left
+          <div class="todos__button">
+            <div class="remaining-items">
+              {{ remainingTodoCount }} item(s) left
+            </div>
+            <div class="filters">
+              <button @click="setFilter('all')" :class="{ active: filter === 'all' }">All</button>
+              <button @click="setFilter('active')" :class="{ active: filter === 'active' }">Active</button>
+              <button @click="setFilter('completed')" :class="{ active: filter === 'completed' }">Completed</button>
+            </div>
+            <button @click="clearCompleted">Clear Completed</button>
           </div>
-          <div class="filters">
-            <button @click="setFilter('all')" :class="{ active: filter === 'all' }">All</button>
-            <button @click="setFilter('active')" :class="{ active: filter === 'active' }">Active</button>
-            <button @click="setFilter('completed')" :class="{ active: filter === 'completed' }">Completed</button>
-          </div>
-          <button @click="clearCompleted">Clear Completed</button>
         </div>
       </div>
     </div>

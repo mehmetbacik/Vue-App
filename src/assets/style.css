@@ -61,6 +61,15 @@ body {
     padding: 0px 15px;
 }
 
+
+#app .content .content__todo .todos__button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-radius: 0px 0px 5px 5px;
+}
+
 /*DarkTheme*/
 #app .dark-mode {
     background-image: url(/public/images/bg-desktop-dark.jpg);
@@ -82,6 +91,10 @@ body {
 
 #app .dark-mode .content__todo .todos form .field .control input[type=text]::placeholder {
     color: var(--light__grayish__blue);
+}
+
+#app .dark-mode .content__todo .todos__button {
+    background-color: var(--very__dark__desaturated__blue);
 }
 /*DarkTheme*/
 
@@ -106,6 +119,10 @@ body {
 
 #app .light-mode .content__todo .todos form .field .control input[type=text]::placeholder {
     color: var(--very__dark__grayish__blue);
+}
+
+#app .light-mode .content__todo .todos__button {
+    background-color: var(--very__light__grayish__blue);
 }
 /*LightTheme*/
 
