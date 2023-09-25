@@ -42,7 +42,9 @@
               <button @click="setFilter('active')" :class="{ active: filter === 'active' }">Active</button>
               <button @click="setFilter('completed')" :class="{ active: filter === 'completed' }">Completed</button>
             </div>
-            <button @click="clearCompleted">Clear Completed</button>
+            <div class="clear">
+              <button @click="clearCompleted">Clear Completed</button>
+            </div>
           </div>
         </div>
       </div>

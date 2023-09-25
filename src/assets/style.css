@@ -61,13 +61,54 @@ body {
     padding: 0px 15px;
 }
 
-
 #app .content .content__todo .todos__button {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
     border-radius: 0px 0px 5px 5px;
+}
+
+#app .content .content__todo .todos__button div {
+    flex-basis: 170px;
+}
+
+#app .content .content__todo .todos__button .remaining-items {
+    color: var(--dark__grayish__blue);
+    font-size: 14px;
+}
+
+#app .content .content__todo .todos__button .filters button {
+    background-color: transparent;
+    font-size: 14px;
+    margin-right: 5px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 3px 5px;
+    color: var(--dark__grayish__blue);
+}
+
+#app .content .content__todo .todos__button .filters button.active {
+    color: var(--bright__blue);
+}
+
+#app .content .content__todo .todos__button .filters button.active:hover {
+    color: var(--bright__blue);
+}
+
+#app .content .content__todo .todos__button .clear {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#app .content .content__todo .todos__button .clear button {
+    background-color: transparent;
+    font-size: 14px;
+    outline: none;
+    border: none;
+    color: var(--dark__grayish__blue);
 }
 
 /*DarkTheme*/
@@ -95,6 +136,14 @@ body {
 
 #app .dark-mode .content__todo .todos__button {
     background-color: var(--very__dark__desaturated__blue);
+}
+
+#app .dark-mode .content__todo .todos__button .filters button:hover {
+    color: var(--light__grayish__blue);
+}
+
+#app .dark-mode .content__todo .todos__button .clear button:hover {
+    color: var(--light__grayish__blue);
 }
 /*DarkTheme*/
 
@@ -124,6 +173,14 @@ body {
 #app .light-mode .content__todo .todos__button {
     background-color: var(--very__light__grayish__blue);
 }
+
+#app .light-mode .content__todo .todos__button .filters button:hover {
+    color: var(--very__dark__grayish__blue);
+}
+
+#app .light-mode .content__todo .todos__button .clear button:hover {
+    color: var(--very__dark__grayish__blue);
+}
 /*LightTheme*/
 
 
@@ -134,33 +191,4 @@ body {
 
 .done {
     text-decoration: line-through;
-}
-
-.light-mode {
-    background-color: #fff;
-    color: #333;
-}
-
-.remaining-items {
-    margin-top: 10px;
-    color: #888;
-    font-size: 14px;
-}
-
-.filters {
-    margin-top: 10px;
-}
-
-.filters button {
-    margin-right: 5px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    padding: 3px 5px;
-}
-
-.filters button.active {
-    background-color: #f0f0f0;
-    border-radius: 4px;
 }
