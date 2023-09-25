@@ -2,40 +2,51 @@
   <div class="content" :class="themeClass">
     <div class="container">
       <div class="content__todo">
-        <form @submit.prevent="addTodo">
-          <div class="field">
-            <label for="" class="label">Todo</label>
-            <div class="control">
-              <input v-model="todo" class="input border" type="text" placeholder="Lorem ipsum dolor sit amet." />
+        <div class="todos">
+          <div class="headline">
+            <div class="title">
+              <span>Todo</span>
+            </div>
+            <div class="theme__button">
+              <button @click="toggleTheme">
+                <i class="theme__icon"></i>
+              </button>
             </div>
           </div>
-          <button type="submit" class="button">Add</button>
-        </form>
-        <div v-for="todo in filteredTodos" :key="todo.id" class="card my-5 mx-5">
-          <div class="card-content">
-            <div class="media">
-              <div class="media-left"></div>
-              <div class="media-content">
-                <p :class="{done: todo.done}" @click="done(todo)" class="title cursor">{{todo.content}}</p>
-                <p class="subtitle">{{todo.done}}</p>
+          <form @submit.prevent="addTodo">
+            <div class="field">
+              <div class="control">
+                <input v-model="todo" class="input border" type="text" placeholder="Lorem ipsum dolor sit amet." />
               </div>
             </div>
+            <button type="submit" class="button">Add</button>
+          </form>
+          <div v-for="todo in filteredTodos" :key="todo.id" class="card my-5 mx-5">
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left"></div>
+                <div class="media-content">
+                  <p :class="{done: todo.done}" @click="done(todo)" class="title cursor">{{todo.content}}</p>
+                  <p class="subtitle">{{todo.done}}</p>
+                </div>
+              </div>
+            </div>
+            <button @click="deleteTodo(todo)" class="delete">X</button>
           </div>
-          <button @click="deleteTodo(todo)" class="delete">X</button>
-        </div>
-        <button @click="toggleTheme">Toggle Theme</button>
 
-        <div class="remaining-items">
-          {{ remainingTodoCount }} item(s) left
+          <div class="remaining-items">
+            {{ remainingTodoCount }} item(s) left
+          </div>
+
+          <div class="filters">
+            <button @click="setFilter('all')" :class="{ active: filter === 'all' }">All</button>
+            <button @click="setFilter('active')" :class="{ active: filter === 'active' }">Active</button>
+            <button @click="setFilter('completed')" :class="{ active: filter === 'completed' }">Completed</button>
+          </div>
+
+          <button @click="clearCompleted">Clear Completed</button>
         </div>
 
-        <div class="filters">
-          <button @click="setFilter('all')" :class="{ active: filter === 'all' }">All</button>
-          <button @click="setFilter('active')" :class="{ active: filter === 'active' }">Active</button>
-          <button @click="setFilter('completed')" :class="{ active: filter === 'completed' }">Completed</button>
-        </div>
-
-        <button @click="clearCompleted">Clear Completed</button>
       </div>
 
     </div>

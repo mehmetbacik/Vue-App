@@ -16,6 +16,39 @@ body {
     min-height: 100vh;
 }
 
+#app .content .content__todo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app .content .content__todo .todos {
+    width: 50%;
+    margin-top: 70px;
+}
+
+#app .content .content__todo .todos .headline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+#app .content .content__todo .todos .headline .title span {
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 12px;
+    color: var(--very__light__gray);
+}
+
+#app .content .content__todo .todos .headline .theme__button button {
+    background: transparent;
+    border: none;
+}
+
+
+
 /*DarkTheme*/
 #app .dark-mode {
     background-image: url(/public/images/bg-desktop-dark.jpg);
@@ -24,6 +57,10 @@ body {
     background-size: contain;
     background-color: var(--very__dark__blue);
     color: var(--light__grayish__blue);
+}
+
+#app .dark-mode .content__todo .todos .headline .theme__button button .theme__icon::before {
+    content: url(/public/images/icon-sun.svg);
 }
 /*DarkTheme*/
 
@@ -35,6 +72,10 @@ body {
     background-size: contain;
     background-color: var(--very__light__gray);
     color: var(--very__dark__grayish__blue);
+}
+
+#app .light-mode .content__todo .todos .headline .theme__button button .theme__icon::before {
+    content: url(/public/images/icon-moon.svg);
 }
 /*LightTheme*/
 
