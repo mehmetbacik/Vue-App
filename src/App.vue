@@ -22,34 +22,38 @@
             <button type="submit" class="btn btn-primary d-none">Add</button>
           </form>
           <div class="todos__shadow">
-            <div class="todos__item">
-              <div v-for="todo in filteredTodos" :key="todo.id" class="card">
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-left">
-                      <input type="checkbox" :class="{done: todo.done}" @click="done(todo)" name="checkbox">
+            <draggable v-model="filteredTodos" @end="onSortChange" :element="'div'" ghost-class="ghost">
+              <template #item="{ element }">
+                <div class="todos__item" :key="element.id">
+                  <div class="card">
+                    <div class="card-content">
+                      <div class="media">
+                        <div class="media-left">
+                          <input type="checkbox" :class="{ done: element.done }" @click="done(element)" name="checkbox" />
+                        </div>
+                        <div class="media-content">
+                          <p :class="{ done: element.done }" @click="done(element)" class="title">{{ element.content }}</p>
+                          <p class="subtitle">{{ element.done }}</p>
+                        </div>
+                      </div>
                     </div>
-                    <div class="media-content">
-                      <p :class="{done: todo.done}" @click="done(todo)" class="title">{{todo.content}}</p>
-                      <p class="subtitle">{{todo.done}}</p>
-                    </div>
+                    <button @click="deleteTodo(element)" class="delete"><i class="icon__delete"></i></button>
                   </div>
                 </div>
-                <button @click="deleteTodo(todo)" class="delete"><i class="icon__delete"></i></button>
-              </div>
+              </template>
+            </draggable>
+          </div>
+          <div class="todos__button">
+            <div class="remaining-items">
+              {{ remainingTodoCount }} items left
             </div>
-            <div class="todos__button">
-              <div class="remaining-items">
-                {{ remainingTodoCount }} items left
-              </div>
-              <div class="filters">
-                <button @click="setFilter('all')" :class="{ active: filter === 'all' }">All</button>
-                <button @click="setFilter('active')" :class="{ active: filter === 'active' }">Active</button>
-                <button @click="setFilter('completed')" :class="{ active: filter === 'completed' }">Completed</button>
-              </div>
-              <div class="clear">
-                <button @click="clearCompleted">Clear Completed</button>
-              </div>
+            <div class="filters">
+              <button @click="setFilter('all')" :class="{ active: filter === 'all' }">All</button>
+              <button @click="setFilter('active')" :class="{ active: filter === 'active' }">Active</button>
+              <button @click="setFilter('completed')" :class="{ active: filter === 'completed' }">Completed</button>
+            </div>
+            <div class="clear">
+              <button @click="clearCompleted">Clear Completed</button>
             </div>
           </div>
         </div>
@@ -63,14 +67,19 @@
 
 <script>
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
+import draggable from 'vuedraggable';
 
 export default {
+  components: {
+    draggable,
+  },
   setup() {
     const todo = ref('');
     const todos = ref([]);
     const isDarkMode = ref(false);
-    const themeClass = computed(() => isDarkMode.value ? 'dark-mode' : 'light-mode');
+    const themeClass = computed(() => (isDarkMode.value ? 'dark-mode' : 'light-mode'));
     const filter = ref('all');
+    let stopWatchingTodos;
 
     function addTodo() {
       todos.value.push({
@@ -135,11 +144,20 @@ export default {
       localStorage.setItem('todos', JSON.stringify(todos.value));
     }
 
-    const stopWatchingTodos = watch(todos, () => {
+    function onSortChange(event) {
+      const movedTodo = filteredTodos.value[event.oldIndex];
+      filteredTodos.value.splice(event.oldIndex, 1);
+      filteredTodos.value.splice(event.newIndex, 0, movedTodo);
+      saveTodos();
+    }
+
+    stopWatchingTodos = watch(todos, () => {
       saveTodos();
     });
 
-    onUnmounted(stopWatchingTodos);
+    onUnmounted(() => {
+      stopWatchingTodos();
+    });
 
     const remainingTodoCount = computed(() => {
       return todos.value.filter(todo => !todo.done).length;
@@ -159,6 +177,7 @@ export default {
       setFilter,
       filteredTodos,
       clearCompleted,
+      onSortChange,
     };
   },
 };

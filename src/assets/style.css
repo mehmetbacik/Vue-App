@@ -329,3 +329,8 @@ body {
     /*LightTheme*/    
 }
 
+.ghost {
+    opacity: 0.6; 
+    background-color: lightgray; 
+    border: 2px dashed gray;
+}
