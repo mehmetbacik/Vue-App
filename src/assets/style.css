@@ -61,6 +61,34 @@ body {
     padding: 0px 15px;
 }
 
+#app .content .content__todo .todos .todos__item .card {
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 10px 20px;
+}
+
+#app .content .content__todo .todos .todos__item .card .delete {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    display: none;
+}
+
+#app .content .content__todo .todos .todos__item .card:hover .delete {
+    display: block;
+}
+
+#app .content .content__todo .todos .todos__item .card .delete .icon__delete::before {
+    content: url(/public/images/icon-cross.svg);
+}
+
+#app .content .content__todo .todos .todos__item .card:first-child {
+    border-radius: 5px 5px 0px 0px;
+}
+
 #app .content .content__todo .todos__button {
     display: flex;
     align-items: center;
@@ -134,6 +162,12 @@ body {
     color: var(--light__grayish__blue);
 }
 
+#app .dark-mode .content__todo .todos .todos__item .card {
+    background-color: var(--very__dark__desaturated__blue);
+    color: var(--light__grayish__blue);
+    border-bottom: solid 1px var(--dark__grayish__blue);
+}
+
 #app .dark-mode .content__todo .todos__button {
     background-color: var(--very__dark__desaturated__blue);
 }
@@ -153,7 +187,7 @@ body {
     background-repeat: no-repeat;
     background-position: top;
     background-size: contain;
-    background-color: var(--very__light__gray);
+    background-color: var(--very__light__grayish__blue);
     color: var(--very__dark__grayish__blue);
 }
 
@@ -162,7 +196,7 @@ body {
 }
 
 #app .light-mode .content__todo .todos form .field .control input[type=text] {
-    background-color: var(--very__light__grayish__blue);
+    background-color: var(--very__light__gray);
     color: var(--very__dark__grayish__blue);
 }
 
@@ -170,8 +204,14 @@ body {
     color: var(--very__dark__grayish__blue);
 }
 
+#app .light-mode .content__todo .todos .todos__item .card {
+    background-color: var(--very__light__gray);
+    color: var(--very__dark__grayish__blue);
+    border-bottom: solid 1px var(--light__grayish__blue);
+}
+
 #app .light-mode .content__todo .todos__button {
-    background-color: var(--very__light__grayish__blue);
+    background-color: var(--very__light__gray);
 }
 
 #app .light-mode .content__todo .todos__button .filters button:hover {

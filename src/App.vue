@@ -21,17 +21,19 @@
             </div>
             <button type="submit" class="btn btn-primary d-none">Add</button>
           </form>
-          <div v-for="todo in filteredTodos" :key="todo.id" class="card">
-            <div class="card-content">
-              <div class="media">
-                <div class="media-left"></div>
-                <div class="media-content">
-                  <p :class="{done: todo.done}" @click="done(todo)" class="title cursor">{{todo.content}}</p>
-                  <p class="subtitle">{{todo.done}}</p>
+          <div class="todos__item">
+            <div v-for="todo in filteredTodos" :key="todo.id" class="card">
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left"></div>
+                  <div class="media-content">
+                    <p :class="{done: todo.done}" @click="done(todo)" class="title cursor">{{todo.content}}</p>
+                    <p class="subtitle">{{todo.done}}</p>
+                  </div>
                 </div>
               </div>
+              <button @click="deleteTodo(todo)" class="delete"><i class="icon__delete"></i></button>
             </div>
-            <button @click="deleteTodo(todo)" class="delete">X</button>
           </div>
           <div class="todos__button">
             <div class="remaining-items">
