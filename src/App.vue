@@ -25,9 +25,11 @@
             <div v-for="todo in filteredTodos" :key="todo.id" class="card">
               <div class="card-content">
                 <div class="media">
-                  <div class="media-left"></div>
+                  <div class="media-left">
+                    <input type="checkbox" :class="{done: todo.done}" @click="done(todo)" name="checkbox">
+                  </div>
                   <div class="media-content">
-                    <p :class="{done: todo.done}" @click="done(todo)" class="title cursor">{{todo.content}}</p>
+                    <p :class="{done: todo.done}" @click="done(todo)" class="title">{{todo.content}}</p>
                     <p class="subtitle">{{todo.done}}</p>
                   </div>
                 </div>
@@ -37,7 +39,7 @@
           </div>
           <div class="todos__button">
             <div class="remaining-items">
-              {{ remainingTodoCount }} item(s) left
+              {{ remainingTodoCount }} items left
             </div>
             <div class="filters">
               <button @click="setFilter('all')" :class="{ active: filter === 'all' }">All</button>

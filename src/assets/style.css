@@ -54,7 +54,7 @@ body {
 
 #app .content .content__todo .todos form .field .control input[type=text] {
     width: 100%;
-    height: 50px;
+    height: 63px;
     outline: none;
     border: none;
     border-radius: 5px;
@@ -67,13 +67,56 @@ body {
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-    padding: 10px 20px;
+    padding: 17px 20px;
+}
+
+#app .content .content__todo .todos .todos__item .card .card-content .media {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#app .content .content__todo .todos .todos__item .card .card-content .media .media-left {
+    line-height: 0;
+}
+
+#app .content .content__todo .todos .todos__item .card .card-content .media .media-left input {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: solid 1px var(--dark__grayish__blue);
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#app .content .content__todo .todos .todos__item .card .card-content .media .media-left input.done {
+    background-image: url(/public/images/icon-check.svg), var(--check__background);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-color: var(--light__grayish__blue);
+}
+
+#app .content .content__todo .todos .todos__item .card .card-content .media .media-content .title {
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+#app .content .content__todo .todos .todos__item .card .card-content .media .media-content .title.done {
+    text-decoration: line-through;
+    color: var(--dark__grayish__blue);
+}
+
+#app .content .content__todo .todos .todos__item .card .card-content .media .media-content .subtitle {
+    display: none;
 }
 
 #app .content .content__todo .todos .todos__item .card .delete {
     background-color: transparent;
     border: 0;
     outline: 0;
+    line-height: 0;
     display: none;
 }
 
@@ -222,13 +265,3 @@ body {
     color: var(--very__dark__grayish__blue);
 }
 /*LightTheme*/
-
-
-
-.cursor {
-    cursor: pointer;
-}
-
-.done {
-    text-decoration: line-through;
-}

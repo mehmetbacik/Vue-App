@@ -2,7 +2,7 @@
 
 :root {
     --bright__blue: hsl(220, 98%, 61%);
-    --check__background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+    --check__background: linear-gradient(#57ddff, #c058f3);
     --theme__font: 'Josefin Sans', sans-serif;
     --theme__size: 18px;
 
