@@ -21,35 +21,40 @@
             </div>
             <button type="submit" class="btn btn-primary d-none">Add</button>
           </form>
-          <div class="todos__item">
-            <div v-for="todo in filteredTodos" :key="todo.id" class="card">
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-left">
-                    <input type="checkbox" :class="{done: todo.done}" @click="done(todo)" name="checkbox">
-                  </div>
-                  <div class="media-content">
-                    <p :class="{done: todo.done}" @click="done(todo)" class="title">{{todo.content}}</p>
-                    <p class="subtitle">{{todo.done}}</p>
+          <div class="todos__shadow">
+            <div class="todos__item">
+              <div v-for="todo in filteredTodos" :key="todo.id" class="card">
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <input type="checkbox" :class="{done: todo.done}" @click="done(todo)" name="checkbox">
+                    </div>
+                    <div class="media-content">
+                      <p :class="{done: todo.done}" @click="done(todo)" class="title">{{todo.content}}</p>
+                      <p class="subtitle">{{todo.done}}</p>
+                    </div>
                   </div>
                 </div>
+                <button @click="deleteTodo(todo)" class="delete"><i class="icon__delete"></i></button>
               </div>
-              <button @click="deleteTodo(todo)" class="delete"><i class="icon__delete"></i></button>
+            </div>
+            <div class="todos__button">
+              <div class="remaining-items">
+                {{ remainingTodoCount }} items left
+              </div>
+              <div class="filters">
+                <button @click="setFilter('all')" :class="{ active: filter === 'all' }">All</button>
+                <button @click="setFilter('active')" :class="{ active: filter === 'active' }">Active</button>
+                <button @click="setFilter('completed')" :class="{ active: filter === 'completed' }">Completed</button>
+              </div>
+              <div class="clear">
+                <button @click="clearCompleted">Clear Completed</button>
+              </div>
             </div>
           </div>
-          <div class="todos__button">
-            <div class="remaining-items">
-              {{ remainingTodoCount }} items left
-            </div>
-            <div class="filters">
-              <button @click="setFilter('all')" :class="{ active: filter === 'all' }">All</button>
-              <button @click="setFilter('active')" :class="{ active: filter === 'active' }">Active</button>
-              <button @click="setFilter('completed')" :class="{ active: filter === 'completed' }">Completed</button>
-            </div>
-            <div class="clear">
-              <button @click="clearCompleted">Clear Completed</button>
-            </div>
-          </div>
+        </div>
+        <div class="text">
+          <p>Drag and drop to reorder list</p>
         </div>
       </div>
     </div>

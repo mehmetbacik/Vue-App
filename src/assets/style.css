@@ -20,6 +20,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+#app .content .content__todo .text {
+    margin-top: 40px;
+}
+
+#app .content .content__todo .text p {
+    color: var(--dark__grayish__blue);
+    font-size: 14px;
 }
 
 #app .content .content__todo .todos {
@@ -68,6 +78,7 @@ body {
     justify-content: space-between;
     flex-direction: row;
     padding: 17px 20px;
+    border: 0;
 }
 
 #app .content .content__todo .todos .todos__item .card .card-content .media {
@@ -138,6 +149,10 @@ body {
     justify-content: space-between;
     padding: 10px 20px;
     border-radius: 0px 0px 5px 5px;
+}
+
+#app .content .content__todo .todos__shadow {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 #app .content .content__todo .todos__button div {
@@ -265,3 +280,52 @@ body {
     color: var(--very__dark__grayish__blue);
 }
 /*LightTheme*/
+
+@media screen and (min-width: 992px) and (max-width:1199px) {
+    #app .content .content__todo .todos {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width:991px) {
+    #app .content .content__todo .todos {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width:767px) {
+    #app .content .content__todo .todos {
+        width: 100%;
+    }
+
+    /*DarkTheme*/
+    #app .dark-mode {
+        background-image: url(/public/images/bg-mobile-dark.jpg);
+    }
+    /*DarkTheme*/   
+    
+    /*LightTheme*/
+    #app .light-mode {
+        background-image: url(/public/images/bg-mobile-light.jpg);
+    }
+    /*LightTheme*/
+}
+
+@media (max-width: 575px) {
+    #app .content .content__todo .todos {
+        width: 100%;
+    }
+
+    /*DarkTheme*/
+    #app .dark-mode {
+        background-image: url(/public/images/bg-mobile-dark.jpg);
+    }
+    /*DarkTheme*/
+
+    /*LightTheme*/
+    #app .light-mode {
+        background-image: url(/public/images/bg-mobile-light.jpg);
+    }
+    /*LightTheme*/    
+}
+
