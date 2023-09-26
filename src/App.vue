@@ -42,18 +42,18 @@
                 </div>
               </template>
             </draggable>
-          </div>
-          <div class="todos__button">
-            <div class="remaining-items">
-              {{ remainingTodoCount }} items left
-            </div>
-            <div class="filters">
-              <button @click="setFilter('all')" :class="{ active: filter === 'all' }">All</button>
-              <button @click="setFilter('active')" :class="{ active: filter === 'active' }">Active</button>
-              <button @click="setFilter('completed')" :class="{ active: filter === 'completed' }">Completed</button>
-            </div>
-            <div class="clear">
-              <button @click="clearCompleted">Clear Completed</button>
+            <div class="todos__button">
+              <div class="remaining-items">
+                {{ remainingTodoCount }} items left
+              </div>
+              <div class="filters">
+                <button @click="setFilter('all')" :class="{ active: filter === 'all' }">All</button>
+                <button @click="setFilter('active')" :class="{ active: filter === 'active' }">Active</button>
+                <button @click="setFilter('completed')" :class="{ active: filter === 'completed' }">Completed</button>
+              </div>
+              <div class="clear">
+                <button @click="clearCompleted">Clear Completed</button>
+              </div>
             </div>
           </div>
         </div>

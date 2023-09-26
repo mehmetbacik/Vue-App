@@ -16,6 +16,12 @@ body {
     min-height: 100vh;
 }
 
+#app .ghost {
+    opacity: 0.6; 
+    background-color: var(--very__light__gray); 
+    border: 2px dashed var(--very__dark__grayish__blue);
+}
+
 #app .content .content__todo {
     display: flex;
     justify-content: center;
@@ -284,12 +290,30 @@ body {
 @media screen and (min-width: 992px) and (max-width:1199px) {
     #app .content .content__todo .todos {
         width: 60%;
+        margin-top: 40px;
+    }
+
+    #app .content .content__todo .todos .headline {
+        margin-bottom: 10px;
+    }
+
+    #app .content .content__todo .todos .headline .title span {
+        font-size: 30px;
     }
 }
 
 @media screen and (min-width: 768px) and (max-width:991px) {
     #app .content .content__todo .todos {
         width: 80%;
+        margin-top: 30px;
+    }
+
+    #app .content .content__todo .todos .headline {
+        margin-bottom: 10px;
+    }
+
+    #app .content .content__todo .todos .headline .title span {
+        font-size: 30px;
     }
 }
 
@@ -327,10 +351,4 @@ body {
         background-image: url(/public/images/bg-mobile-light.jpg);
     }
     /*LightTheme*/    
-}
-
-.ghost {
-    opacity: 0.6; 
-    background-color: lightgray; 
-    border: 2px dashed gray;
 }
