@@ -322,6 +322,10 @@ body {
         width: 100%;
     }
 
+    #app .content .content__todo .todos__button .filters button {
+        margin-right: 0px;
+    }
+
     /*DarkTheme*/
     #app .dark-mode {
         background-image: url(/public/images/bg-mobile-dark.jpg);
@@ -338,6 +342,40 @@ body {
 @media (max-width: 575px) {
     #app .content .content__todo .todos {
         width: 100%;
+        margin-top: 45px;
+        padding: 0px 10px;
+    }
+
+    #app .content .content__todo .todos .headline .title span {
+        font-size: 30px;
+    }
+
+    #app .content .content__todo .todos__button div {
+        flex-basis: 215px;
+    }
+
+    #app .content .content__todo .todos__button .filters button {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    #app .content .content__todo .todos__button {
+        justify-content: center;
+        margin-top: 20px;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    #app .content .content__todo .todos__button .remaining-items {
+        display: none;
+    }
+
+    #app .content .content__todo .todos__button .clear {
+        display: none;
+    }
+
+    #app .content .content__todo .todos__shadow {
+        box-shadow: none;
     }
 
     /*DarkTheme*/
