@@ -149,16 +149,16 @@ body {
     border-radius: 5px 5px 0px 0px;
 }
 
+#app .content .content__todo .todos__shadow {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
 #app .content .content__todo .todos__button {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
     border-radius: 0px 0px 5px 5px;
-}
-
-#app .content .content__todo .todos__shadow {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 #app .content .content__todo .todos__button div {
@@ -203,6 +203,37 @@ body {
     color: var(--dark__grayish__blue);
 }
 
+#app .content .content__todo .m__todos__button {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-radius: 0px 0px 5px 5px;
+}
+
+#app .content .content__todo .m__todos__button div {
+    flex-basis: 170px;
+}
+
+#app .content .content__todo .m__todos__button .remaining-items {
+    color: var(--dark__grayish__blue);
+    font-size: 14px;
+}
+
+#app .content .content__todo .m__todos__button .clear {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#app .content .content__todo .m__todos__button .clear button {
+    background-color: transparent;
+    font-size: 14px;
+    outline: none;
+    border: none;
+    color: var(--dark__grayish__blue);
+}
+
 /*DarkTheme*/
 #app .dark-mode {
     background-image: url(/public/images/bg-desktop-dark.jpg);
@@ -233,6 +264,10 @@ body {
 }
 
 #app .dark-mode .content__todo .todos__button {
+    background-color: var(--very__dark__desaturated__blue);
+}
+
+#app .dark-mode .content__todo .m__todos__button {
     background-color: var(--very__dark__desaturated__blue);
 }
 
@@ -275,6 +310,10 @@ body {
 }
 
 #app .light-mode .content__todo .todos__button {
+    background-color: var(--very__light__gray);
+}
+
+#app .light-mode .content__todo .m__todos__button {
     background-color: var(--very__light__gray);
 }
 
@@ -376,6 +415,21 @@ body {
 
     #app .content .content__todo .todos__shadow {
         box-shadow: none;
+    }
+
+    #app .content .content__todo .m__todos__button {
+        display: flex;
+    }
+
+    #app .content .content__todo .m__todos__button {
+        justify-content: center;
+        border-radius: 0px 0px 5px 5px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 17px 20px;
+    }
+
+    #app .content .content__todo .todos .todos__item .card .delete {
+        display: block;
     }
 
     /*DarkTheme*/

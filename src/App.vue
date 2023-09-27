@@ -42,6 +42,14 @@
                 </div>
               </template>
             </draggable>
+            <div class="m__todos__button">
+              <div class="remaining-items">
+                {{ remainingTodoCount }} items left
+              </div>
+              <div class="clear">
+                <button @click="clearCompleted">Clear Completed</button>
+              </div>
+            </div>
             <div class="todos__button">
               <div class="remaining-items">
                 {{ remainingTodoCount }} items left
