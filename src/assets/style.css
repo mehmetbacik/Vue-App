@@ -145,7 +145,7 @@ body {
     content: url(/public/images/icon-cross.svg);
 }
 
-#app .content .content__todo .todos .todos__item .card:first-child {
+#app .content .content__todo .todos .todos__item:first-child .card {
     border-radius: 5px 5px 0px 0px;
 }
 
@@ -239,7 +239,7 @@ body {
     background-image: url(/public/images/bg-desktop-dark.jpg);
     background-repeat: no-repeat;
     background-position: top;
-    background-size: contain;
+    background-size: 100% 290px;
     background-color: var(--very__dark__blue);
     color: var(--light__grayish__blue);
 }
@@ -285,7 +285,7 @@ body {
     background-image: url(/public/images/bg-desktop-light.jpg);
     background-repeat: no-repeat;
     background-position: top;
-    background-size: contain;
+    background-size: 100% 290px;
     background-color: var(--very__light__grayish__blue);
     color: var(--very__dark__grayish__blue);
 }
@@ -327,6 +327,14 @@ body {
 /*LightTheme*/
 
 @media screen and (min-width: 992px) and (max-width:1199px) {
+    #app .dark-mode {
+        background-size: 100% 230px;
+    }
+
+    #app .light-mode {
+        background-size: 100% 230px;
+    }
+
     #app .content .content__todo .todos {
         width: 60%;
         margin-top: 40px;
@@ -342,6 +350,14 @@ body {
 }
 
 @media screen and (min-width: 768px) and (max-width:991px) {
+    #app .dark-mode {
+        background-size: 100% 220px;
+    }
+
+    #app .light-mode {
+        background-size: 100% 220px;
+    }
+
     #app .content .content__todo .todos {
         width: 80%;
         margin-top: 30px;
@@ -368,12 +384,14 @@ body {
     /*DarkTheme*/
     #app .dark-mode {
         background-image: url(/public/images/bg-mobile-dark.jpg);
+        background-size: 100% 285px;
     }
     /*DarkTheme*/   
     
     /*LightTheme*/
     #app .light-mode {
         background-image: url(/public/images/bg-mobile-light.jpg);
+        background-size: 100% 285px;
     }
     /*LightTheme*/
 }
@@ -435,12 +453,14 @@ body {
     /*DarkTheme*/
     #app .dark-mode {
         background-image: url(/public/images/bg-mobile-dark.jpg);
+        background-size: contain;
     }
     /*DarkTheme*/
 
     /*LightTheme*/
     #app .light-mode {
         background-image: url(/public/images/bg-mobile-light.jpg);
+        background-size: contain;
     }
     /*LightTheme*/    
 }
