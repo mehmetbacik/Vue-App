@@ -22,7 +22,7 @@
             <button type="submit" class="btn btn-primary d-none">Add</button>
           </form>
           <div class="todos__shadow">
-            <draggable v-model="filteredTodos" @end="onSortChange" :element="'div'" ghost-class="ghost">
+            <draggable v-model="filteredTodos" @end="onSortChange" :item-key="'id'" :element="'div'" ghost-class="ghost">
               <template #item="{ element }">
                 <div class="todos__item" :key="element.id">
                   <div class="card">
