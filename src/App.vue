@@ -84,7 +84,7 @@ export default {
   setup() {
     const todo = ref('');
     const todos = ref([]);
-    const isDarkMode = ref(false);
+    const isDarkMode = ref(true);
     const themeClass = computed(() => (isDarkMode.value ? 'dark-mode' : 'light-mode'));
     const filter = ref('all');
     let stopWatchingTodos;
