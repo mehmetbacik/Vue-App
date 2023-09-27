@@ -88,7 +88,8 @@ export default {
     const themeClass = computed(() => (isDarkMode.value ? 'dark-mode' : 'light-mode'));
     const filter = ref('all');
     let stopWatchingTodos;
-
+    
+    //Adds a new todo
     function addTodo() {
       todos.value.push({
         done: false,
@@ -99,21 +100,25 @@ export default {
       saveTodos(); 
     }
 
+    //Toggles the completion status of a todo
     function done(todo) {
       todo.done = !todo.done;
       saveTodos(); 
     }
 
+    //Deletes a todo
     function deleteTodo(todoToDelete) {
       todos.value = todos.value.filter(todo => todo !== todoToDelete);
       saveTodos(); 
     }
 
+    //Toggles the theme (Dark or Light Mode)
     function toggleTheme() {
       isDarkMode.value = !isDarkMode.value;
       localStorage.setItem('isDarkMode', isDarkMode.value.toString());
     }
 
+    //Runs when the page is mounted and retrieves stored data from localStorage
     onMounted(() => {
       const storedMode = localStorage.getItem('isDarkMode');
       if (storedMode === 'true') {
@@ -128,6 +133,7 @@ export default {
       }
     });
 
+    //Filters the list of todos and returns the result
     const filteredTodos = computed(() => {
       if (filter.value === 'all') {
         return todos.value;
@@ -139,19 +145,23 @@ export default {
       return [];
     });
 
+    //Changes the filter type (All, Active, Completed)
     function setFilter(newFilter) {
       filter.value = newFilter;
     }
 
+    //Clears completed todos
     function clearCompleted() {
       todos.value = todos.value.filter(todo => !todo.done);
       saveTodos(); 
     }
 
+    //Saves data to local storage
     function saveTodos() {
       localStorage.setItem('todos', JSON.stringify(todos.value));
     }
 
+    //Runs when the order of todos changes
     function onSortChange(event) {
       const movedTodo = filteredTodos.value[event.oldIndex];
       filteredTodos.value.splice(event.oldIndex, 1);
@@ -159,14 +169,17 @@ export default {
       saveTodos();
     }
 
+    //Watches for changes in todos and automatically saves them
     stopWatchingTodos = watch(todos, () => {
       saveTodos();
     });
 
+    //Stops watching when the page is unmounted
     onUnmounted(() => {
       stopWatchingTodos();
     });
 
+    //Calculates the number of remaining uncompleted todos
     const remainingTodoCount = computed(() => {
       return todos.value.filter(todo => !todo.done).length;
     });
